@@ -1,6 +1,7 @@
 package com.pong.controller;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -47,5 +48,10 @@ public class PlayerController {
 	@PostMapping(value="/{playerId}")
 	public Mono<Player> recordGame(@RequestParam String playerId,@RequestBody Score score){
 		return playerService.recordGame(playerId, score);
+	}
+	
+	@GetMapping("/all")
+	public Flux<List<Player>> findAllPlayers(){
+		return playerService.findAllPlayers();
 	}
 }
