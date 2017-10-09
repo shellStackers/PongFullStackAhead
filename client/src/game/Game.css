@@ -1,0 +1,24 @@
+ :local .top .left .right .bottom {
+   background: #a5ebff;
+ 	 position: fixed;
+ }
+ :local(.left .right) {
+   top: 0; bottom: 0;
+   width: 15px;
+ }
+ :local(.left) {
+   left: 0;
+ }
+ :local(.right) {
+   right: 0;
+ }
+ :local(.top .bottom) {
+   left: 0; right: 0;
+   height: 15px;
+ }
+ :local(.top) {
+   top: 0;
+ }
+ :local(.bottom) {
+   bottom: 0;
+ }

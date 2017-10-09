@@ -17,7 +17,7 @@ class Login extends Component {
 
   handleClick(event) {
     let apiBaseUrl = "http://localhost:3000/api";
-    window.location.href = "http://localhost:3001/thejungle"
+    window.location.href = "http://" + window.location.host + "/thejungle";
     let self = this;
     let payload = {
       "email": this.state.username,
