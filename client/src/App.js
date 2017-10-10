@@ -17,18 +17,18 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        {/* <div> */}
           {/* <h2>Welcome to the jungle</h2>
           <ul>
             <li><Link to={'/'}>Login</Link></li>
             <li><Link to={'/thejungle'}>The Jungle</Link></li>
           </ul> */}
-          <hr />
+          {/* <hr /> */}
           <Switch>
             <Route exact path='/' component={Login}/>
             <Route path='/thejungle' component={Game}/>
           </Switch>
-        </div>
+        {/* </div> */}
       </Router>
     );
   }
