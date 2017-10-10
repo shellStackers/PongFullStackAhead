@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/player")
 @Slf4j
+@CrossOrigin
 public class PlayerController {
 
 	@Autowired
@@ -46,7 +48,7 @@ public class PlayerController {
 		playerService.deleteAll();
 	}
 	
-	@PostMapping(value="/{playerId}")
+	@PostMapping(value="/record/{playerId}")
 	public Mono<Player> recordGame(@PathVariable String playerId,@RequestBody Score score){
 		return playerService.recordGame(playerId, score);
 	}

@@ -20,12 +20,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(of= {"id","name"})
+@EqualsAndHashCode(of= {"name"})
 public class Player {
 	
 	@Id
-	private String id;
-	@Indexed(unique=true)
 	private String name;
 	
 	private int totalWins;

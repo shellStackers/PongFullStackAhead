@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.pong.domain.Player;
+import com.pong.domain.Score;
+import com.pong.domain.Score.Result;
 import com.pong.service.PlayerService;
 
 @RunWith(SpringRunner.class)
@@ -31,10 +33,23 @@ public class PlayerControllerTests {
 
 	@Test
 	public void testPlayerCreation() throws Exception {
-		Player player = Player.builder().id("123").name("John").build();
+		Player player = Player.builder().name("John").build();
 		this.client.post().uri("/player").syncBody(player).exchange()
 		.expectStatus().isOk().expectHeader()
-				.contentType(MediaType.APPLICATION_JSON_UTF8).expectBody(Player.class).isEqualTo(Player.builder().id("123").name("John").build());
+				.contentType(MediaType.APPLICATION_JSON_UTF8).expectBody(Player.class).isEqualTo(Player.builder().name("John").build());
 	}
+	
+//	@Test
+//	public void testRecordScore() {
+//		Score score = Score.builder().result(Result.WIN).value("5").build();
+//		
+//		this.client.post().uri("/player/record/TOM").syncBody(score).exchange()
+//		.expectStatus().isOk().expectHeader()
+//				.contentType(MediaType.APPLICATION_JSON_UTF8).expectBody(Player.class).isEqualTo(Player.builder().name("TOM").build());
+//		@PostMapping(value="/record/{playerId}")
+//		public Mono<Player> recordGame(@PathVariable String playerId,@RequestBody Score score){
+//			return playerService.recordGame(playerId, score);
+//		}
+//	}
 
 }
