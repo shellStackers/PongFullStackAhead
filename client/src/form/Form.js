@@ -34,18 +34,17 @@ class Form extends Component {
       value: payload.value
     }).then(function (response) {
       console.log(response);
-      if(response.data.code == 200){
-        console.log("Successfully request")
-        // let uploadScreen = [];
-        // uploadScreen.push(<uploadScreen appContext = {self.props.appContext}/>)
-        // self.props.appContext.setState({loginPage: [],
-        //                                 uploadScreen: uploadScreen})
-      } else if (response.data.code == 204){
-        console.log("Incorrect credentials");
-        alert("Incorrect credentials. Please try again")
+      if(response.status == 200){
+        console.log("Successfull request")
+        if(response.data){
+          window.location.href = "http://" + window.location.host + "/thejungle"
+        }
+      } else if (response.status == 204){
+        // console.log("Incorrect credentials");
+        // alert("Incorrect credentials. Please try again")
       } else {
-        console.log("Username does not exist");
-        alert("Username does not exist. Please re-enter or register");
+        // console.log("Username does not exist");
+        // alert("Username does not exist. Please re-enter or register");
       }
     }).catch(function (err) {
       console.log(err)

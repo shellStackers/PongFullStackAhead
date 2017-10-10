@@ -5,8 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-
 class Login extends Component {
   constructor(props){
     super(props);
@@ -40,7 +38,7 @@ class Login extends Component {
         // self.props.appContext.setState({loginPage: [],
         //                                 uploadScreen: uploadScreen})
         if(response.data){
-          window.location.href = "http://localhost:3001/thejungle";
+          window.location.href = "http://" + window.location.host + "/thejungle";
         }
       } else if (response.status == 204){
         // console.log("Incorrect credentials");
